@@ -1,0 +1,7 @@
+# YAML that deploys React.JS website to bucket
+This YAML assumes you will be passing in some info for $_ENVIRONMENT and $_BUCKET_NAME. That info will usually be passed with Terraform code. 
+
+Instead you could hard code in your bucket name and environment into the YAML.
+
+## Terraform code that goes along with this YAML
+- [Bagel Terraform Upload Site to GCP from Github Repo](https://github.com/BagelHole/Bagel-Terraform-Templates/tree/main/Bagel-Terraform-GCP-GitHub-Upload-Site)

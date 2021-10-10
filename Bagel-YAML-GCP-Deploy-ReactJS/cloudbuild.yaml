@@ -1,0 +1,11 @@
+steps:
+  - name: node
+    entrypoint: npm
+    args: ['install']
+  - name: node
+    entrypoint: bash
+    args: [ '-c', 'REACT_APP_REGION=$_REGION REACT_APP_ENVIRONMENT=$_ENVIRONMENT npm run predeploy']
+  - name: gcr.io/cloud-builders/gsutil
+    args: ["-m", "rm", "-f", "gs://$_BUCKET_NAME/**"]
+  - name: gcr.io/cloud-builders/gsutil
+    args: ["-m", "rsync", "-r", "-c", "-d", "./build", "gs://$_BUCKET_NAME"]
